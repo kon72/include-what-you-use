@@ -1008,6 +1008,28 @@ const IncludeMapEntry libcxx_include_map[] = {
     {"@<__utility/.*>", kPrivate, "<utility>", kPublic},
     {"@<__variant/.*>", kPrivate, "<variant>", kPublic},
 
+    // For the following entries:
+    // cd llvm-project/libcxx/include ; find __fwd -type f -name "*.h" | sort | sed -e "s#__fwd/\(.*\).h#  { include: [\"<__fwd/\1.h>\", private, \"<\1>\", public ] },#"
+    //
+    // tweak hash, pair, subrange_kind entries, and comment out get
+    {"<__fwd/array.h>", kPrivate, "<array>", kPublic},
+    {"<__fwd/fstream.h>", kPrivate, "<fstream>", kPublic},
+    //{"<__fwd/get.h>", kPrivate, "<get>", kPublic},
+    {"<__fwd/hash.h>", kPrivate, "<functional>", kPublic},
+    {"<__fwd/ios.h>", kPrivate, "<ios>", kPublic},
+    {"<__fwd/istream.h>", kPrivate, "<istream>", kPublic},
+    {"<__fwd/mdspan.h>", kPrivate, "<mdspan>", kPublic},
+    {"<__fwd/memory_resource.h>", kPrivate, "<memory_resource>", kPublic},
+    {"<__fwd/ostream.h>", kPrivate, "<ostream>", kPublic},
+    {"<__fwd/pair.h>", kPrivate, "<utility>", kPublic},
+    {"<__fwd/span.h>", kPrivate, "<span>", kPublic},
+    {"<__fwd/sstream.h>", kPrivate, "<sstream>", kPublic},
+    {"<__fwd/streambuf.h>", kPrivate, "<streambuf>", kPublic},
+    {"<__fwd/string.h>", kPrivate, "<string>", kPublic},
+    {"<__fwd/string_view.h>", kPrivate, "<string_view>", kPublic},
+    {"<__fwd/subrange.h>", kPrivate, "<ranges>", kPublic},
+    {"<__fwd/tuple.h>", kPrivate, "<tuple>", kPublic},
+
     // For older MacOS libc++ (13.0.0), on macOS Ventura (13.2.1)
     {"<__functional_base>", kPrivate, "<functional>", kPublic},
 
